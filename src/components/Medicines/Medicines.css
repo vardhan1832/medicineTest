@@ -1,0 +1,41 @@
+.container {
+    width: 70%;
+    padding: 5px;
+    border: 1px solid rgb(212, 204, 204);
+    background-color: white;
+    border-radius: 15px;
+    margin: 0 auto;
+    margin-top: 1rem;
+}
+.menu{
+    margin: 0.5rem auto;
+    margin-top: 3rem;
+    text-align: center;
+    color: white;
+    padding: 1.25rem;
+    background-color: rgb(69, 71, 70);
+}
+.meditems {
+    max-width: 60rem;
+    width: 90%;
+    margin: 3rem auto;
+    animation: meds-appear 1s ease-out forwards;
+  }
+  
+  .meditems ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  @keyframes meds-appear {
+    from {
+      opacity: 0;
+      transform: translateY(3rem);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }

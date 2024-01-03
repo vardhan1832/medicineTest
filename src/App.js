@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react";
+import CartOverlay from "./components/Cart/CartOverlay";
+import "./App.css";
+import FormProvider from "./store/FormProvider";
+import Form from "./components/Form/Form";
+import Medicines from "./components/Medicines/Medicines";
+import CartProvider from "./store/CartProvider";
+import Header from "./components/Layout/Header";
 
 function App() {
+  const [cartDisplay, setcartDisplay] = useState(false);
+  const onCartClickHandler = () => {
+    setcartDisplay(true);
+  };
+  const onCancelClickHandler = () => {
+    setcartDisplay(false);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <FormProvider>
+      <CartProvider>
+      {cartDisplay && <CartOverlay onCancelClick={onCancelClickHandler}/>}
+        <Header onCartclick={onCartClickHandler} />
+        <Form />
+        <Medicines />
+      </CartProvider>
+    </FormProvider>
   );
 }
 
